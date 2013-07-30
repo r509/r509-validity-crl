@@ -1,4 +1,4 @@
-#r509-validity-crl
+#r509-validity-crl [![Build Status](https://secure.travis-ci.org/reaperhulk/r509-validity-crl.png)](http://travis-ci.org/reaperhulk/r509-validity-crl)
 This project is related to [r509](http://github.com/reaperhulk/r509) and [r509-ocsp-responder](http://github.com/reaperhulk/r509-ocsp-responder) projects. It allows certificate validity and revocation information to be read from a pre-generated CRL and used to populate OCSP responses.
 
 ##Usage
@@ -13,4 +13,4 @@ Dependo::Registry[:validity_checker] = R509::Validity::CRL::Checker.new(crl_path
 * The reload_interval defines the interval at which the checker will reload the CRL from the filesystem. By default it is 60m.
 
 ##Limitations
-Due to the way CRLs work the responder can only operate in "known bad" mode. That is, the OCSP responder will respond "VALID" to all queries for certificates that are not explicitly revoked. This is in contrast to "known good" mode enabled by tracking all issuances with a plugin like [r509-validity-redis](http://github.com/sirsean/r509-validity-redis), which allows for VALID, REVOKED, and UNKNOWN responses.
+Due to the way CRLs work the responder can only operate in "known bad" mode. That is, the OCSP responder will respond *VALID* to all queries for certificates that are not explicitly revoked. This is in contrast to "known good" mode enabled by tracking all issuances with a plugin like [r509-validity-redis](http://github.com/sirsean/r509-validity-redis), which allows for *VALID*, *REVOKED*, and *UNKNOWN* responses.
