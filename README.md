@@ -2,7 +2,7 @@
 This project is related to [r509](http://github.com/reaperhulk/r509) and [r509-ocsp-responder](http://github.com/reaperhulk/r509-ocsp-responder) projects. It allows certificate validity and revocation information to be read from a pre-generated CRL and used to populate OCSP responses.
 
 ##Usage
-Remove the redis sections of the config.ru for r509-ocsp-responder and replace the validity checker with this:
+Remove the redis-related lines of the [config.ru](https://github.com/reaperhulk/r509-ocsp-responder#set-up-configru) for r509-ocsp-responder and replace them with this:
 ```ruby
 require 'r509/validity/crl'
 crl_paths = ['/path/to/crl','/path/to/crl2']
