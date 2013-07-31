@@ -33,4 +33,9 @@ describe R509::Validity::CRL::Checker do
     status2.revocation_time.should == 1323439403
     status2.revocation_reason.should == 'Unspecified'
   end
+  it "next_update is cached from the parsed CRLs" do
+    checker = R509::Validity::CRL::Checker.new([@path,@path2])
+    checker.crls['/C=US/O=SecureTrust Corporation/CN=SecureTrust CA'][:next_update].to_i.should == 1375401002
+    checker.crls['/C=US/O=DigiCert Inc/OU=www.digicert.com/CN=DigiCert High Assurance EV CA-1'][:next_update].to_i.should == 1375808400
+  end
 end

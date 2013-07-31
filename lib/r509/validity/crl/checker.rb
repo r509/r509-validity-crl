@@ -21,7 +21,7 @@ module R509::Validity::CRL
     def check(issuer,serial)
       raise ArgumentError.new("Serial and issuer must be provided") if serial.to_s.empty? or issuer.to_s.empty?
 
-      revocation_data = @crls[issuer.to_s].revoked[serial.to_i]
+      revocation_data = @crls[issuer.to_s][:revoked][serial.to_i]
       if revocation_data
         R509::Validity::Status.new(
           :status => R509::Validity::REVOKED,
@@ -39,7 +39,7 @@ module R509::Validity::CRL
       @new_crls = {}
       @crl_paths.each do |crl|
         parsed = R509::CRL::SignedList.load_from_file(crl)
-        @new_crls[parsed.issuer.to_s] = parsed
+        @new_crls[parsed.issuer.to_s] = { :revoked => parsed.revoked, :next_update => parsed.next_update }
       end
       @crls = @new_crls
     end
