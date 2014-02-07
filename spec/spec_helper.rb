@@ -1,6 +1,9 @@
-if (RUBY_VERSION.split('.')[1].to_i > 8 or RUBY_VERSION.split('.')[0].to_i > 1)
-    require 'simplecov'
-    SimpleCov.start
+require 'simplecov'
+SimpleCov.start
+begin
+  require 'coveralls'
+  Coveralls.wear!
+rescue LoadError
 end
 
 $:.unshift File.expand_path("../../lib", __FILE__)

@@ -13,10 +13,9 @@ spec = Gem::Specification.new do |s|
   s.add_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'syntax'
-  s.add_development_dependency 'simplecov'
   s.author = "Paul Kehrer"
   s.email = "paul.l.kehrer@gmail.com"
-  s.homepage = "http://langui.sh"
+  s.homepage = "https://langui.sh"
   s.required_ruby_version = ">= 1.9.3"
   s.files = %w(README.md LICENSE.md Rakefile) + Dir["{lib,spec,doc}/**/*"]
   s.test_files= Dir.glob('test/*_spec.rb')
