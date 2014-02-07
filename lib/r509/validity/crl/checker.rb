@@ -10,7 +10,7 @@ module R509::Validity::CRL
     def initialize(crl_paths,scheduler_interval='60m')
       @crl_paths = crl_paths
       load_crls
-      @scheduler = Rufus::Scheduler.start_new
+      @scheduler = Rufus::Scheduler.new
 
       @scheduler.every scheduler_interval do
         load_crls

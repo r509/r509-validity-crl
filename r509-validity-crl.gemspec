@@ -9,7 +9,7 @@ spec = Gem::Specification.new do |s|
   s.summary = "A Validity::Writer and Validity::Checker for r509, implemented with a CRL loader backend"
   s.description = "A Validity::Writer and Validity::Checker for r509, implemented with a CRL loader backend"
   s.add_dependency 'r509', '>= 0.9.0'
-  s.add_dependency 'rufus-scheduler'
+  s.add_dependency 'rufus-scheduler', '~> 3.0'
   s.add_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'syntax'
