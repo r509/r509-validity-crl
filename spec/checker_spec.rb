@@ -31,7 +31,7 @@ describe R509::Validity::CRL::Checker do
     status2 = checker.check('/C=US/O=DigiCert Inc/OU=www.digicert.com/CN=DigiCert High Assurance EV CA-1',16849924485970054612761793550114076650)
     status2.status.should == R509::Validity::REVOKED
     status2.revocation_time.should == 1323439403
-    status2.revocation_reason.should == 'Unspecified'
+    status2.revocation_reason.should == 0
   end
   it "next_update is cached from the parsed CRLs" do
     checker = R509::Validity::CRL::Checker.new([@path,@path2])
