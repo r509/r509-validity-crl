@@ -26,7 +26,7 @@ module R509::Validity::CRL
         R509::Validity::Status.new(
           :status => R509::Validity::REVOKED,
           :revocation_time => revocation_data[:time].to_i,
-          :revocation_reason => revocation_data[:reason]
+          :revocation_reason => revocation_data[:int_reason]
         )
       else
         R509::Validity::Status.new(:status => R509::Validity::VALID)
